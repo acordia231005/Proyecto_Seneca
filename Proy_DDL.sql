@@ -31,7 +31,7 @@ create table asignatura(
     constraint fk_asignatura_curso foreign key (curso_asignado) references curso(id)
 );
 create table matricula(
-	id int primary key auto_increment,
+	id int,
     alumno int,
     asignatura int,
     estado enum('Aprobado', 'Pendiente'),
