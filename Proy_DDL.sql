@@ -1,6 +1,6 @@
-drop database if exists Proy_DDL;
-create database Proy_DDL;
-use proy_DDL;
+drop database if exists proy_seneca;
+create database proy_seneca;
+use proy_seneca;
 
 create table Usuarios(
 	id int primary key auto_increment,
