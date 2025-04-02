@@ -1,0 +1,23 @@
+digraph ER_Seneca {
+	rankdir=LR size=12
+	Usuario [label="{Usuario | ID_Usuario (PK) | Nombre | Apellidos | DNI/NIE | Tipo_Usuario | Email}" shape=record]
+	"Centro Educativo" [label="{Centro Educativo | ID_Centro (PK) | Nombre | Dirección | Teléfono | Tipo_Centro}" shape=record]
+	"Curso Escolar" [label="{Curso Escolar | ID_Curso (PK) | Año_Inicio | Año_Fin}" shape=record]
+	Asignatura [label="{Asignatura | ID_Asignatura (PK) | Nombre | Código | Curso_Asignado}" shape=record]
+	Profesor [label="{Profesor | ID_Profesor (PK) | ID_Centro (FK) | ID_Usuario (FK)}" shape=record]
+	Alumno [label="{Alumno | ID_Alumno (PK) | ID_Centro (FK) | ID_Usuario (FK)}" shape=record]
+	"Matrícula" [label="{Matrícula | ID_Matrícula (PK) | ID_Alumno (FK) | ID_Asignatura (FK) | Estado}" shape=record]
+	"Evaluación" [label="{Evaluación | ID_Evaluación (PK) | ID_Alumno (FK) | ID_Asignatura (FK) | Nota}" shape=record]
+	"Faltas de Asistencia" [label="{Faltas de Asistencia | ID_Falta (PK) | ID_Alumno (FK) | Fecha | Justificada}" shape=record]
+	"Comunicación" [label="{Comunicación | ID_Mensaje (PK) | ID_Emisor (FK) | ID_Receptor (FK) | Contenido | Fecha_Envío}" shape=record]
+	Usuario -> "Centro Educativo" [label="PERTENECE A" arrowhead=vee]
+	"Centro Educativo" -> "Curso Escolar" [label=IMPARTE arrowhead=vee]
+	"Curso Escolar" -> Asignatura [label=INCLUYE arrowhead=vee]
+	Profesor -> Asignatura [label=IMPARTE arrowhead=vee]
+	Alumno -> "Matrícula" [label="SE MATRICULA EN" arrowhead=vee]
+	"Matrícula" -> Asignatura [label="ES PARTE DE" arrowhead=vee]
+	Alumno -> "Evaluación" [label="RECIBE NOTA EN" arrowhead=vee]
+	"Evaluación" -> Asignatura [label="PERTENECE A" arrowhead=vee]
+	Alumno -> "Faltas de Asistencia" [label=TIENE arrowhead=vee]
+	Usuario -> "Comunicación" [label="ENVÍA MENSAJE A" arrowhead=vee]
+}
