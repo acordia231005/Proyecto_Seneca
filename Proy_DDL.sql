@@ -20,7 +20,7 @@ create table profesor (
 
 create table alumno(
 	id int primary key auto_increment,
-    estado enum('Activo', 'Inactivo')
+    estado boolean default false
 );
 
 create table faltas_asistencia (
@@ -63,18 +63,19 @@ create table ra (
     constraint fk_ra_modulo_profesional foreign key (modulo_profesional) references modulo_profesional(id)
 );
 
-create table tarea (
-	id int primary key auto_increment,
-    nombre varchar(100),
-    fecha_entrega date
-);
-
 create table criterios_evaluacion (
 	 id int primary key auto_increment,
-     nombre text,
+     nombre char(3),
      ponderacion int,
      ra int,
      constraint fk_criterios_evaluacion_ra foreign key (ra) references ra(id)
+);
+
+create table tarea (
+	id int primary key auto_increment,
+    nombre varchar(100),
+    fecha_entrega date,
+    tipo enum('Proyecto', 'Cuestionario', 'Oral', 'Practica', 'Papel')
 );
 
 create table evaluacion (
@@ -110,7 +111,7 @@ create table oferta_educativa (
 create table curso (
 	id int primary key auto_increment,
     oferta_educativa int,
-    tipo enum('Eso', 'Bachiller', 'FP')
+    tipo enum('FP', 'Universidad')
 );
 
 create table matricula (
