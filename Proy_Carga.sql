@@ -14,13 +14,12 @@ insert into persona (nombre, apellidos, direccion, fecha_nac, dni, genero) value
 ('Luis', 'Moreno Vega', 'Avenida Desarrollo 11', '1989-06-29', '01234567K', 'Masculino'),
 ('Elena', 'Castro Ramírez', 'Calle Innovadora 4B', '1993-01-05', '34567891L', 'Femenino'),
 ('Javier', 'Ramos López', 'Plaza Tecnología 10A','1992-08-17','45678901M','Masculino'),
-('Clara','Jiménez Torres','Av. Metodología 23','1990-03-11','56789012N','Femenino'),
-('Fernando','López García','Calle Diseño UX','1988-07-21','67890123O','Masculino');
+('Clara','Jiménez Torres','Av. Metodología 23','1990-03-11','56789012N','Femenino');
 
 insert into profesor (id, especialidad) values
 (1, 'Desarrollo Web Cliente'),
 (2, 'Desarrollo Web Servidor'),
-(3, 'Bases de Datos Relacionales'),
+(3, 'Bases de Datos'),
 (4, 'Seguridad Informática'),
 (5, 'Programación Multimedia y Videojuegos'),
 (6, 'Interfaces Gráficas y Usabilidad');
@@ -97,13 +96,13 @@ insert into tarea (nombre, fecha_entrega, tipo) values
 ('Laboratorio Administración Sistemas', '2025-07-15', 'Practica');
 
 insert into evaluacion (alumno, tarea, criterios_evaluacion, nota) values
-(7, 1, 1, 85),
-(10, 2, 2, 90),
-(8, 3, 3, 75),
-(11, 4, 4, 92),
-(12, 5, 5, 88),
-(9, 6, 6, 78),
-(14, 7, 7, 95);
+(7, 1, 1, 8),
+(10, 2, 2, 9),
+(8, 3, 1, 7),
+(11, 4, 4, 4),
+(12, 5, 5, 8),
+(9, 6, 6, 7),
+(14, 7, 7, 9);
 
 insert into centro (nombre, direccion, localidad, provincia, tipo) values
 ('IES Tecnológico Madrid', 'Calle Innovación 10', 'Madrid', 'Madrid', 'Instituto'),
