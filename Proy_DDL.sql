@@ -20,7 +20,8 @@ create table profesor (
 
 create table alumno(
 	id int primary key auto_increment,
-    estado boolean default false
+    estado boolean default false,
+	constraint fk_alumno_persona foreign key (id) references persona(id)
 );
 
 create table faltas_asistencia (
@@ -59,7 +60,6 @@ create table ra (
     modulo_profesional int,
     ponderacion int,
     descripcion text,
-    observaciones text,
     constraint fk_ra_modulo_profesional foreign key (modulo_profesional) references modulo_profesional(id)
 );
 
@@ -111,7 +111,8 @@ create table oferta_educativa (
 create table curso (
 	id int primary key auto_increment,
     oferta_educativa int,
-    tipo enum('FP', 'Universidad')
+    tipo enum('FP', 'Universidad'),
+    constraint fk_curso_oferta_educativa foreign key (oferta_educativa) references oferta_educativa(id)
 );
 
 create table matricula (
