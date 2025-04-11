@@ -37,7 +37,7 @@ insert into alumno (id, estado) values
 insert into faltas_asistencia (alumno, faltas_justificadas, faltas_injustificadas) values
 (7, 2, 1),
 (8, 0, 3),
-(9, 1, 0),
+(10, 1, 0),
 (11, 3, 2),
 (13, 1, 4),
 (14, 0, 0);
@@ -65,16 +65,16 @@ insert into imparte (profesor, modulo_profesional) values
 (4, 4),
 (5, 5),
 (6, 6),
-(1, 7);
+(3, 7);
 
 insert into ra (modulo_profesional, ponderacion, descripcion) values
-(1, 25, 'Desarrollar interfaces de usuario ricas y accesibles.'),
+(7, 25, 'Desarrollar interfaces de usuario ricas y accesibles.'),
 (2, 30, 'Implementar lógica de negocio en el servidor.'),
 (3, 20, 'Administrar sistemas operativos de red.'),
 (4, 15, 'Diseñar interfaces gráficas intuitivas y usables.'),
 (5, 25, 'Crear aplicaciones para dispositivos móviles.'),
 (6, 30, 'Implementar medidas de seguridad en aplicaciones web.'),
-(7, 10, 'Administrar y gestionar bases de datos.');
+(5, 10, 'Administrar y gestionar bases de datos.');
 
 insert into criterios_evaluacion (nombre, ponderacion, ra) values
 ('a', 40, 1),
@@ -100,16 +100,16 @@ insert into evaluacion (alumno, tarea, criterios_evaluacion, nota) values
 (10, 2, 2, 9),
 (8, 3, 1, 7),
 (11, 4, 4, 4),
-(12, 5, 5, 8),
-(9, 6, 6, 7),
+(13, 5, 5, 8),
+(8, 6, 6, 7),
 (14, 7, 7, 9);
 
 insert into centro (nombre, direccion, localidad, provincia, tipo) values
-('IES Tecnológico Madrid', 'Calle Innovación 10', 'Madrid', 'Madrid', 'Instituto'),
+('IES Tecnológico Madrid', 'Calle Innovación 10', 'Madrid', 'Madrid', 'FP'),
 ('Centro FP Barcelona Norte', 'Avenida Tecnología S/N', 'Barcelona', 'Barcelona', 'FP'),
 ('Universidad Politécnica Valencia', 'Campus Vera S/N', 'Valencia', 'Valencia', 'Universidad'),
-('Escuela Superior de Informática Sevilla', 'Calle Programación 5', 'Sevilla', 'Sevilla', 'Universidad'),
-('IES Los Alcores', 'Avenida Industria 15', 'Mairena del Alcor', 'Sevilla', 'Instituto');
+('Escuela Superior de Informática Sevilla', 'Calle Programación 5', 'Sevilla', 'Sevilla', 'FP'),
+('IES Los Alcores', 'Avenida Industria 15', 'Mairena del Alcor', 'Sevilla', 'FP');
 
 insert into oferta_educativa (centro, ciclo, fecha_inicio, fecha_fin) values
 (1, 1, '2025-09-01', '2026-06-30'),
@@ -128,6 +128,6 @@ insert into curso (oferta_educativa, tipo) values
 insert into matricula (alumno, curso, num_alum, anio_inicio, anio_final) values
 (7, 1, 101, '2025-09-01', '2026-06-30'),
 (13, 2, 202, '2024-09-01', '2025-06-30'),
-(9, 3, 303, '2025-09-01', '2026-06-30'),
-(12, 4, 404, '2026-09-01', '2027-06-30'),
+(8, 3, 303, '2025-09-01', '2026-06-30'),
+(10, 4, 404, '2026-09-01', '2027-06-30'),
 (14, 5, 505, '2025-09-01', '2026-06-30');

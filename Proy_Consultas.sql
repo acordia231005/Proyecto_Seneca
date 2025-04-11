@@ -1,16 +1,12 @@
 use proy_seneca;
 -- Consulta 1. Nota media del RA1 de la asignatura “Bases de datos” por cada alumno.
-select a.id id, avg(e.nota) nota_media
-from alumno a
-	join evaluacion e on a.id = e.alumno
+select e.alumno, round(avg(e.nota * (ra.ponderacion/100)),2) nota_media
+from evaluacion e
 	join criterios_evaluacion ce on e.criterios_evaluacion = ce.id
 	join ra ra on ce.ra = ra.id
-	join modulo_profesional mp on ra.modulo_profesional = mp.id
-    join imparte i on i.modulo_profesional = mp.id
-    join profesor p on i.profesor = p.id
-where p.especialidad = 'Bases de datos' 
-    and ra.id = 3
-group by a.id;
+where ra.id = 1
+	and ra.modulo_profesional = 7
+group by e.alumno;
 
 -- Consulta 2. Nombre y apellidos del alumno que ha obtenido mayor nota en cualquier criterio de
 -- evaluación de cualquier módulo profesional.
@@ -57,7 +53,7 @@ group by mp.id, mp.nombre;
 
 -- Consulta 7. Muestra todos los RA suspensos para cada alumno. El listado debe incluir nombre
 -- completo del alumno, nombre del módulo y descripción del RA
-select p.nombre nombre_alumno, p.apellidos apellidos_alumno, mp.nombre modulo_profesional,
+select p.nombre , p.apellidos , mp.nombre modulo_profesional,
 		r.descripcion resultado_aprendizaje, e.nota nota
 from evaluacion e
 	join alumno a on e.alumno = a.id
